@@ -19,15 +19,13 @@ class Song
   end
   
   def self.new_by_filename(file)
-    arr = []
     arr = file.split(" - ")
     temp = self.new(arr[1])
     @artist = Artist.new(arr[0])
-    #temp.artist = temp2
     @artist.save
+    temp.artist = @artist
     @artist.add_song(temp)
-
-    # binding.pry
+    #binding.pry
     temp
   end
 end
