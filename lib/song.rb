@@ -1,6 +1,9 @@
 class Song
   attr_accessor :new_by_filename, :artist, :name
   # attr_reader :name
+
+  #attr_accessor :new_by_filename
+  attr_reader :name, :artist
   
   def initialize(name)
     @name = name
@@ -13,6 +16,14 @@ class Song
   # def artist=(artist_obj)
   #   @artist = artist_obj
   # end
+
+  def name=(name)
+    @name = name
+  end
+  
+  def artist=(artist_obj)
+    @artist = artist_obj
+  end
   
   def new_by_filename(filename)
     @new_by_filename = filename
@@ -25,7 +36,7 @@ class Song
     @artist.save
     temp.artist = @artist
     @artist.add_song(temp)
-    #binding.pry
+    binding.pry
     temp
   end
 end
